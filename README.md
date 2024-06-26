@@ -7,5 +7,5 @@ Each folder has a function I'd like to convert.  There's a sample function call 
 - tsfresh - I've had several customers using this.  Also this lib has a ton of dependencies, so I'm curious how codon handles the unneeded dependencies.
 - customer - Another snippet from a customer, also curious how using scipy.signal goes since that's another common lib
 
-If you need to modify anything, go for it, just be sure to check your changes in so I can see what had to change.
+If you need to modify anything, go for it, just be sure to check in your changes in so I can see what had to change.
 
