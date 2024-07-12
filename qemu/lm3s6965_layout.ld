@@ -16,7 +16,7 @@ SECTIONS {
             *(.rodata)
             . = ALIGN(4);
         } > FLASH
-        
+
         .data : {
             . = ALIGN(4);
             _sram_sdata = .;
@@ -37,4 +37,9 @@ SECTIONS {
         } > SRAM
 
         _sram_stacktop = ORIGIN(SRAM) + LENGTH(SRAM);
+
+        /DISCARD/ :
+        {
+            *(.ARM.exidx)
+        }
 }
