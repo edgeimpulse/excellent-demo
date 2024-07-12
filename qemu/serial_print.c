@@ -1,4 +1,5 @@
 #include <stdint.h>
+// #include <stdio.h>
 
 /* We'll be using the serial interface to print on the console (qemu)
  * For this, we write to the UART.
@@ -10,21 +11,27 @@
 
 volatile uint8_t* lm3s6965_uart0 = (uint8_t*)0x4000C000;
 
-void uart0_print(const char* msg);
+void uart0_print(char* msg);
 
 extern int factorial(int x);
 
 void main(void)
 {
-    int y = factorial(4);
-    const char *start_msg = "Hello, World\n";
+    int y = factorial(3);
+    char *start_msg = "Factorial: ";
+    char out[10];
+    // snprintf(out, 10, "%i", y);
 
     uart0_print(start_msg);
+    out[0] = y + 0x30;
+    out[1] = 0;
+    uart0_print(out);
+    uart0_print("\n");
 
     while(1);
 }
 
-void uart0_print(const char* msg)
+void uart0_print(char* msg)
 {
     while(*msg)
     {
