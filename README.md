@@ -9,3 +9,6 @@ Each folder has a function I'd like to convert.  There's a sample function call 
 
 If you need to modify anything, go for it, just be sure to check in your changes in so I can see what had to change.
 
+# How I'm converting
+
+clang -c my_add.ll -o my_add.o --target=armv6m-none-eabi -fno-exceptions

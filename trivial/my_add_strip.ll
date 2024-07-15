@@ -166,8 +166,8 @@ yield.new2.i282.i.i.i:                            ; preds = %yield.new2.i282.i.i
   ret { { i64 }, { i64 }, ptr } %common.ret.op.i.i.i
 }
 
-attributes #0 = { mustprogress nounwind willreturn allockind("alloc,uninitialized") allocsize(0) }
-attributes #1 = { nounwind }
+attributes #0 = { mustprogress nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="seq_alloc" }
+attributes #1 = { nounwind memory(readwrite, argmem: read) }
 
 !llvm.module.flags = !{!0, !1}
 
