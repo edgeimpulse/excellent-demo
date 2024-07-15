@@ -1,3 +1,5 @@
+# DIR ?= ../factorial
+
 all: system.bin
 
 startup_lm3s6965.o: startup_lm3s6965.c
@@ -6,11 +8,11 @@ startup_lm3s6965.o: startup_lm3s6965.c
 serial_print.o: serial_print.c
 	arm-none-eabi-gcc -c -g -mcpu=cortex-m3 -mthumb -o serial_print.o serial_print.c
 
-main.o: ../factorial/main.c
-	arm-none-eabi-gcc -c -g -mcpu=cortex-m3 -mthumb -o main.o ../factorial/main.c
+main.o: $(DIR)/main.c
+	arm-none-eabi-gcc -c -g -mcpu=cortex-m3 -mthumb -o main.o $(DIR)/main.c
 
 startup_lm3s6965.elf: startup_lm3s6965.o serial_print.o main.o
-	arm-none-eabi-ld -T lm3s6965_layout.ld -o startup_lm3s6965.elf startup_lm3s6965.o serial_print.o ../factorial/factorial.o main.o
+	arm-none-eabi-ld -T lm3s6965_layout.ld -o startup_lm3s6965.elf startup_lm3s6965.o serial_print.o $(DIR)/func.o main.o
 
 system.bin: startup_lm3s6965.elf
 	arm-none-eabi-objcopy -O binary startup_lm3s6965.elf system.bin
