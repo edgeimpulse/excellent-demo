@@ -30,16 +30,30 @@ SECTIONS {
         .bss :{
             . = ALIGN(4);
             _sram_sbss = .;
+            __bss_start__ = .;
             *(.bss)
+            __bss_end__ = .;
             *(COMMON)
             . = ALIGN(4);
             _sram_ebss = .;
         } > SRAM
 
+        .heap : {
+            __heap_start__ = .;
+            end = __heap_start__;
+            _end = end;
+            __end = end;
+            KEEP(*(.heap))
+            __heap_end__ = .;
+            __HeapLimit = __heap_end__;
+        } > SRAM
+
         _sram_stacktop = ORIGIN(SRAM) + LENGTH(SRAM);
 
-        /DISCARD/ :
-        {
-            *(.ARM.exidx)
-        }
+        .ARM.extab   : { *(.ARM.extab* .gnu.linkonce.armextab.*) } >FLASH
+        .ARM : {
+            __exidx_start = .;
+            *(.ARM.exidx*)
+            __exidx_end = .;
+        } >FLASH
 }
