@@ -1,11 +1,14 @@
-#include "serial_print.h"
+// #include "serial_print.h"
+#include "stdio.h"
 
 extern int factorial(int x);
 
-void main(void)
+int main(void)
 {
     int y = factorial(3);
-    printf("Factorial pf: %i", y);
+    printf("test\n");
+    printf("Factorial pf: %i\n", y);
+    // printf("float test: %f\n", 23.4);
 
     while(1);
 }
