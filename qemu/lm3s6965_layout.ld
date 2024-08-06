@@ -7,6 +7,8 @@ MEMORY {
         SRAM  (rw) : ORIGIN = 0x20000000, LENGTH = 64K
 }
 
+__HEAP_SIZE  = 0x00000C00;
+
 SECTIONS {
         . = 0x00000000;
         .text : {
@@ -38,15 +40,15 @@ SECTIONS {
             _sram_ebss = .;
         } > SRAM
 
-        .heap : {
-            __heap_start__ = .;
-            end = __heap_start__;
-            _end = end;
-            __end = end;
-            KEEP(*(.heap))
-            __heap_end__ = .;
-            __HeapLimit = __heap_end__;
-        } > SRAM
+        .heap :
+        {
+            . = ALIGN(8);
+            __end__ = .;
+            PROVIDE(end = .);
+            . = . + __HEAP_SIZE;
+            . = ALIGN(8);
+            __HeapLimit = .;
+        } > RAM
 
         _sram_stacktop = ORIGIN(SRAM) + LENGTH(SRAM);
 
