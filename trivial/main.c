@@ -8,13 +8,14 @@ typedef struct {
     float* data;
 } ndarray;
 
-extern ndarray my_add(ndarray a, ndarray b);
+extern void my_add(ndarray *a, ndarray *b, ndarray *out);
 
 int main(void)
 {
     float data[10000];
     ndarray in = {4,4,data};
     ndarray in2 = {4,4,data};
-    ndarray res = my_add(in,in2);
+    ndarray out;
+    my_add(&in, &in2, &out);
     printf("test\n");
 }
