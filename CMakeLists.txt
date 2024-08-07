@@ -8,9 +8,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
 set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
 
-add_executable(app)# qemu/serial_print.c)
-target_sources(app PRIVATE factorial/main.c factorial/mac.o)
+add_executable(app lib.c)# qemu/serial_print.c)
+set(DIR "trivial")
+target_sources(app PRIVATE ${DIR}/main.c ${DIR}/mac.o)
 
-include_directories(qemu)
+# include_directories(qemu)
 
 
