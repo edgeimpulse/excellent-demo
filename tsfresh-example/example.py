@@ -8,8 +8,8 @@ def binned_entropy(x, num_bins):
     return entropy
 
 @export
-def generate_features(input: np.ndarray[int, 1]):
-    return binned_entropy(input, 3)
+def generate_features(input: Ptr[np.ndarray[int, 1]]):
+    return binned_entropy(input[0], 3)
 
 #input = list(range(1, 20))
 

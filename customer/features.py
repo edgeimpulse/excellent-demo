@@ -9,7 +9,8 @@ def find_peaks(x):
     return peaks
 
 @export
-def generate_features(input: np.ndarray[float, 1]):
+def generate_features(input: Ptr[np.ndarray[float, 1]]):
+    input = input[0]
     out = []
     out.append(np.std(input))
     out.append(len(find_peaks(input)))
