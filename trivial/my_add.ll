@@ -1,4 +1,4 @@
-; ModuleID = 'codon'
+; ModuleID = 'my_add.ll'
 source_filename = "/Users/alex/work/repos/excellent-demo/trivial/my_add.py"
 target datalayout = "e-m:o-i64:64-i128:128-n32:64-S128"
 target triple = "arm64-apple-darwin23.6.0"
@@ -78,7 +78,7 @@ ternary.true1.i.i.i.i.i.i:                        ; preds = %entry
   %tmp.i250.i.i.i.i.i.i = icmp eq i64 %.sroa.0.0.i.i.i.i.i.i.i.i, 4
   br i1 %tmp.i250.i.i.i.i.i.i, label %ternary.true.i.i.i.i.i.i, label %ternary.true10.i.i.i.i.i.i
 
-imp_for.body.i.i.i.i.i.i:                         ; preds = %imp_for.cond.preheader.i.i.i.i.i.i, %imp_for.body.i.i.i.i.i.i
+imp_for.body.i.i.i.i.i.i:                         ; preds = %imp_for.body.i.i.i.i.i.i, %imp_for.cond.preheader.i.i.i.i.i.i
   %11 = phi i64 [ %15, %imp_for.body.i.i.i.i.i.i ], [ 0, %imp_for.cond.preheader.i.i.i.i.i.i ]
   %12 = getelementptr float, ptr %10, i64 %11
   %13 = getelementptr float, ptr %.unpack4.i, i64 %11
@@ -101,7 +101,7 @@ imp_for.cond13.preheader.i.i.i.i.i.i:             ; preds = %ternary.true10.i.i.
   %.not241288.i.i.i.i.i.i = icmp sgt i64 %spec.select.i.1.i.i.i.i.i.i.i, 0
   br i1 %.not241288.i.i.i.i.i.i, label %imp_for.body14.i.i.i.i.i.i, label %"my_add_impl:0[std.numpy.ndarray.ndarray[float32,1],std.numpy.ndarray.ndarray[float32,1]].2206.exit"
 
-imp_for.body14.i.i.i.i.i.i:                       ; preds = %imp_for.cond13.preheader.i.i.i.i.i.i, %imp_for.body14.i.i.i.i.i.i
+imp_for.body14.i.i.i.i.i.i:                       ; preds = %imp_for.body14.i.i.i.i.i.i, %imp_for.cond13.preheader.i.i.i.i.i.i
   %16 = phi i64 [ %19, %imp_for.body14.i.i.i.i.i.i ], [ 0, %imp_for.cond13.preheader.i.i.i.i.i.i ]
   %tmp.i258.i.i.i.i.i.i = shl i64 %16, 2
   %17 = getelementptr i8, ptr %10, i64 %tmp.i258.i.i.i.i.i.i
@@ -114,7 +114,7 @@ imp_for.body14.i.i.i.i.i.i:                       ; preds = %imp_for.cond13.preh
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %19, %spec.select.i.1.i.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %"my_add_impl:0[std.numpy.ndarray.ndarray[float32,1],std.numpy.ndarray.ndarray[float32,1]].2206.exit", label %imp_for.body14.i.i.i.i.i.i
 
-imp_for.body27.i.i.i.i.i.i:                       ; preds = %imp_for.cond26.preheader.i.i.i.i.i.i, %imp_for.body27.i.i.i.i.i.i
+imp_for.body27.i.i.i.i.i.i:                       ; preds = %imp_for.body27.i.i.i.i.i.i, %imp_for.cond26.preheader.i.i.i.i.i.i
   %20 = phi i64 [ %23, %imp_for.body27.i.i.i.i.i.i ], [ 0, %imp_for.cond26.preheader.i.i.i.i.i.i ]
   %tmp.i264.i.i.i.i.i.i = shl i64 %20, 2
   %21 = getelementptr i8, ptr %10, i64 %tmp.i264.i.i.i.i.i.i
@@ -131,7 +131,7 @@ imp_for.cond30.preheader.i.i.i.i.i.i:             ; preds = %ternary.true10.i.i.
   %.not239291.i.i.i.i.i.i = icmp sgt i64 %spec.select.i.1.i.i.i.i.i.i.i, 0
   br i1 %.not239291.i.i.i.i.i.i, label %imp_for.body31.i.i.i.i.i.i, label %"my_add_impl:0[std.numpy.ndarray.ndarray[float32,1],std.numpy.ndarray.ndarray[float32,1]].2206.exit"
 
-imp_for.body31.i.i.i.i.i.i:                       ; preds = %imp_for.cond30.preheader.i.i.i.i.i.i, %imp_for.body31.i.i.i.i.i.i
+imp_for.body31.i.i.i.i.i.i:                       ; preds = %imp_for.body31.i.i.i.i.i.i, %imp_for.cond30.preheader.i.i.i.i.i.i
   %24 = phi i64 [ %28, %imp_for.body31.i.i.i.i.i.i ], [ 0, %imp_for.cond30.preheader.i.i.i.i.i.i ]
   %tmp.i266.i.i.i.i.i.i = shl i64 %24, 2
   %25 = getelementptr i8, ptr %10, i64 %tmp.i266.i.i.i.i.i.i
@@ -147,7 +147,7 @@ imp_for.body31.i.i.i.i.i.i:                       ; preds = %imp_for.cond30.preh
   %exitcond297.not.i.i.i.i.i.i = icmp eq i64 %28, %spec.select.i.1.i.i.i.i.i.i.i
   br i1 %exitcond297.not.i.i.i.i.i.i, label %"my_add_impl:0[std.numpy.ndarray.ndarray[float32,1],std.numpy.ndarray.ndarray[float32,1]].2206.exit", label %imp_for.body31.i.i.i.i.i.i
 
-imp_for.body.i.i.i.i.i:                           ; preds = %imp_for.cond.preheader.i.i.i.i.i, %imp_for.body.i.i.i.i.i
+imp_for.body.i.i.i.i.i:                           ; preds = %imp_for.body.i.i.i.i.i, %imp_for.cond.preheader.i.i.i.i.i
   %29 = phi i64 [ %33, %imp_for.body.i.i.i.i.i ], [ 0, %imp_for.cond.preheader.i.i.i.i.i ]
   %30 = getelementptr float, ptr %8, i64 %29
   %31 = getelementptr float, ptr %.unpack4.i, i64 %29
@@ -160,7 +160,7 @@ imp_for.body.i.i.i.i.i:                           ; preds = %imp_for.cond.prehea
   %exitcond.not.i.i.i.i.i = icmp eq i64 %33, %.unpack.unpack.i
   br i1 %exitcond.not.i.i.i.i.i, label %"my_add_impl:0[std.numpy.ndarray.ndarray[float32,1],std.numpy.ndarray.ndarray[float32,1]].2206.exit", label %imp_for.body.i.i.i.i.i
 
-"my_add_impl:0[std.numpy.ndarray.ndarray[float32,1],std.numpy.ndarray.ndarray[float32,1]].2206.exit": ; preds = %imp_for.body.i.i.i.i.i, %imp_for.body14.i.i.i.i.i.i, %imp_for.body27.i.i.i.i.i.i, %imp_for.body.i.i.i.i.i.i, %imp_for.body31.i.i.i.i.i.i, %imp_for.cond.preheader.i.i.i.i.i, %imp_for.cond26.preheader.i.i.i.i.i.i, %imp_for.cond.preheader.i.i.i.i.i.i, %imp_for.cond13.preheader.i.i.i.i.i.i, %imp_for.cond30.preheader.i.i.i.i.i.i
+"my_add_impl:0[std.numpy.ndarray.ndarray[float32,1],std.numpy.ndarray.ndarray[float32,1]].2206.exit": ; preds = %imp_for.body.i.i.i.i.i, %imp_for.body31.i.i.i.i.i.i, %imp_for.cond30.preheader.i.i.i.i.i.i, %imp_for.body27.i.i.i.i.i.i, %imp_for.body14.i.i.i.i.i.i, %imp_for.cond13.preheader.i.i.i.i.i.i, %imp_for.body.i.i.i.i.i.i, %imp_for.cond.preheader.i.i.i.i.i.i, %imp_for.cond26.preheader.i.i.i.i.i.i, %imp_for.cond.preheader.i.i.i.i.i
   %34 = phi ptr [ %8, %imp_for.cond.preheader.i.i.i.i.i ], [ %10, %imp_for.cond30.preheader.i.i.i.i.i.i ], [ %10, %imp_for.cond13.preheader.i.i.i.i.i.i ], [ %10, %imp_for.cond.preheader.i.i.i.i.i.i ], [ %10, %imp_for.cond26.preheader.i.i.i.i.i.i ], [ %10, %imp_for.body31.i.i.i.i.i.i ], [ %10, %imp_for.body.i.i.i.i.i.i ], [ %10, %imp_for.body27.i.i.i.i.i.i ], [ %10, %imp_for.body14.i.i.i.i.i.i ], [ %8, %imp_for.body.i.i.i.i.i ]
   %.unpack.unpack.i.pn = phi i64 [ %.unpack.unpack.i, %imp_for.cond.preheader.i.i.i.i.i ], [ %spec.select.i.1.i.i.i.i.i.i.i, %imp_for.cond30.preheader.i.i.i.i.i.i ], [ %spec.select.i.1.i.i.i.i.i.i.i, %imp_for.cond13.preheader.i.i.i.i.i.i ], [ %spec.select.i.1.i.i.i.i.i.i.i, %imp_for.cond.preheader.i.i.i.i.i.i ], [ %spec.select.i.1.i.i.i.i.i.i.i, %imp_for.cond26.preheader.i.i.i.i.i.i ], [ %spec.select.i.1.i.i.i.i.i.i.i, %imp_for.body31.i.i.i.i.i.i ], [ %spec.select.i.1.i.i.i.i.i.i.i, %imp_for.body.i.i.i.i.i.i ], [ %spec.select.i.1.i.i.i.i.i.i.i, %imp_for.body27.i.i.i.i.i.i ], [ %spec.select.i.1.i.i.i.i.i.i.i, %imp_for.body14.i.i.i.i.i.i ], [ %.unpack.unpack.i, %imp_for.body.i.i.i.i.i ]
   store i64 %.unpack.unpack.i.pn, ptr %2, align 8
@@ -170,16 +170,6 @@ imp_for.body.i.i.i.i.i:                           ; preds = %imp_for.cond.prehea
   store ptr %34, ptr %self.repack3.i, align 8
   ret {} zeroinitializer
 }
-
-declare void @seq_init(i32) local_unnamed_addr
-
-define i32 @main(i32 %argc, ptr nocapture readnone %argv) local_unnamed_addr personality ptr @seq_personality {
-codon.proxy_main.exit:
-  tail call void @seq_init(i32 4)
-  ret i32 0
-}
-
-declare i32 @seq_personality(i32, i32, i64, ptr, ptr)
 
 attributes #0 = { mustprogress nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="seq_alloc" }
 attributes #1 = { nounwind }

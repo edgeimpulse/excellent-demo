@@ -21,4 +21,4 @@ https://docs.exaloop.io/codon/language/extra
 # generating .ll files
 
 codon build -llvm -release -disable-exceptions -disable-native -force-vector-width 1 file.py
-/opt/homebrew/opt/llvm/bin/llvm-extract --func=generate_features -S -recursive -keep-const-init sgram/sgram.ll -o sgram/sgram.ll
+llvm-extract --func=generate_features -S -recursive -keep-const-init sgram/sgram.ll -o sgram/sgram.ll
