@@ -7,10 +7,12 @@ endif()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Accept source directory as parameter
+# Accept source directory as parameter and resolve to absolute path
 if(NOT DEFINED SOURCE_DIR)
     message(FATAL_ERROR "Please specify SOURCE_DIR: -DSOURCE_DIR=path/to/sources")
 endif()
+get_filename_component(SOURCE_DIR "${SOURCE_DIR}" REALPATH BASE_DIR "${CMAKE_BINARY_DIR}")
+message("SOURCE_DIR: ${SOURCE_DIR}")
 
 # Find all .c and .py files
 file(GLOB C_SOURCES "${SOURCE_DIR}/*.cpp")
