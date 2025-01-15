@@ -1,7 +1,6 @@
 import numpy as np
+from .impl import my_add_impl  # or just 'from impl import my_add_impl' if in same directory
 
-def my_add_impl(x, y):
-    return x + y
 
 @export
 def my_add(x: Ptr[np.ndarray[np.float32, 1]],

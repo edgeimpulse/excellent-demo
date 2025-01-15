@@ -14,7 +14,8 @@ endif()
 
 # Find all .c and .py files
 file(GLOB C_SOURCES "${SOURCE_DIR}/*.c")
-file(GLOB PY_SOURCES "${SOURCE_DIR}/*.py")
+file(GLOB PY_SOURCES "${SOURCE_DIR}/my_add.py")
+
 
 # Create custom commands for processing Python files
 foreach(PY_FILE ${PY_SOURCES})
