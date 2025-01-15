@@ -36,5 +36,7 @@ foreach(PY_FILE ${PY_SOURCES})
 endforeach()
 
 # Create the final executable
-add_executable(app lib.c ${C_SOURCES} ${GENERATED_OBJECTS})
+add_executable(app lib_tracked.cpp ${C_SOURCES} ${GENERATED_OBJECTS})
 
+# Add the lib_tracked.h file to the include path
+target_include_directories(app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

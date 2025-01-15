@@ -1,6 +1,7 @@
 // #include "serial_print.h"
 #include <iostream>
 #include <stdint.h>
+#include "lib_tracked.h"
 
 typedef struct {
     uint64_t shape;
@@ -24,5 +25,6 @@ int main(void)
               << out.data[1] << ", "
               << out.data[2] << ", "
               << out.data[3] << "]\n";
+    std::cout << "Max allocation: " << seq_max_allocation() << " bytes" << std::endl;
     return 0;
 }
