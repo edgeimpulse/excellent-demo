@@ -13,7 +13,7 @@ if(NOT DEFINED SOURCE_DIR)
 endif()
 
 # Find all .c and .py files
-file(GLOB C_SOURCES "${SOURCE_DIR}/*.c")
+file(GLOB C_SOURCES "${SOURCE_DIR}/*.cpp")
 file(GLOB PY_SOURCES "${SOURCE_DIR}/my_add.py")
 
 
