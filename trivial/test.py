@@ -11,8 +11,12 @@ def test_add_implementation():
     expected = np.array([2, 4, 6, 8])
     np.testing.assert_array_equal(result, expected)
 
-    # Run the app and compare results
-    proc = subprocess.run(['./build/app'], capture_output=True, text=True)
+    # Convert arrays to comma-separated strings
+    a_str = ','.join(map(str, a))
+    b_str = ','.join(map(str, b))
+
+    # Run the app with arrays as CLI arguments
+    proc = subprocess.run(['./build/app', a_str, b_str], capture_output=True, text=True)
     output_lines = [line for line in proc.stdout.split('\n') if line.startswith('out:')]
     assert len(output_lines) > 0, "No output lines found starting with 'out:'"
     print(output_lines)
