@@ -16,7 +16,7 @@ message("SOURCE_DIR: ${SOURCE_DIR}")
 
 # Find all .c and .py files
 file(GLOB C_SOURCES "${SOURCE_DIR}/*.cpp")
-file(GLOB PY_SOURCES "${SOURCE_DIR}/my_add.py")
+file(GLOB PY_SOURCES "${SOURCE_DIR}/*.codon")
 
 
 # Create custom commands for processing Python files
