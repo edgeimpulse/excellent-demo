@@ -1,5 +1,8 @@
-from .impl import my_add_impl
+from impl import my_add_impl
 import numpy as np
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from test_help import verify_cli_app_output
 
 def test_add_implementation():
